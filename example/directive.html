@@ -8,10 +8,21 @@
 	<h2>directive</h2>
 	<hr/>
 	<div id="app">
-		<div v-add="color">{{num}}</div>
+		<div v-jsadd="color">{{num}}</div>
+		<p><button  @click="add" >add</button></p>
 	</div>
+	<p><button onclick='unbing()'></p>
+	<script src="../assets/js/vue.js"></script>
 	<script type="text/javascript">
-		Vue.directive('add',function(el,binding){
+	function unbing(){
+		app.$destory();//解绑app
+	}
+		Vue.directive('jsadd',function(el,binding){
+			/*console.log(el);
+			console.log(binding);
+			console.log(binding.name);
+			console.log(binding.value);
+			console.log(binding.expression);*/
 			el.style="color:"+binding.value
 		});
 		var app = new Vue({
@@ -20,7 +31,7 @@
 				num:10,
 				color:'red'
 			},
-			method:{
+			methods:{
 				add:function(){
 					this.num++;
 				}

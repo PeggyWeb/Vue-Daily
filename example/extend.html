@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>扩展</title>
+</head>
+<body>
+	<author></author>
+	<script src="../assets/js/vue.js"></script>
+	<script type="text/javascript">
+		var authorURL= Vue.extend({
+			template:"<p><a :href='authorUrl'>{{authorName}}</a></p>",
+			data:function(){
+				return{
+					authorName:'peggy',
+					authorUrl:'https://www.baidu.com'
+				}
+			}
+		});
+		new authorURL().$mount("author");//最好还是用id的写法<div id="author"></div>new authorUrl().$mount("#author");
+	</script>
+</body>
+</html>
