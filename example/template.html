@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>template写法</title>
+</head>
+<body>
+	<h2>template三种写法</h2>
+	<hr>
+	<div id="app">
+		
+	</div>
+	<template id="dd2">
+		<h2 style="color:red">第二种写法</h2>
+	</template>
+	<script type="x-template" id="dd3">
+		<h2 style="color:red">第三种</h2>
+	</script>
+	<script src="../assets/js/vue.js"></script>
+	<script type="text/javascript">
+		var app=new Vue({
+			el:'#app',
+			data:{
+				message:'hello world'
+			},
+			template:'#dd3'
+			//template:'#dd2'//适合已有切图
+			// template:`
+			// 	<h2 style="color:red">我是选项模板</h2>
+			// `第一种,适合少内容
+		})
+	</script>
+</body>
+</html>

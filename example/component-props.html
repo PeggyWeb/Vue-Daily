@@ -4,20 +4,29 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>扩展</title>
+	<title>组件属性</title>
 </head>
 <body>
 	<h2>title</h2>
 	<hr>
 	<div id="app">
-		
+		<panda here="China"></panda>
 	</div>
 	<script src="../assets/js/vue.js"></script>
 	<script type="text/javascript">
+	Vue.component('slide',{
+		template:`<h2>全局组件</h2>`
+	})
 		var app=new Vue({
 			el:'#app',
 			data:{
 
+			},
+			components:{
+				"panda":{
+					template:`<div>组件属性{{here}}</div>`,
+					props:['here']//不支持中划线，必须用驼峰
+				}
 			}
 		})
 	</script>
