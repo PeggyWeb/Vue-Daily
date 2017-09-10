@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>组件属性</title>
+</head>
+<body>
+	<h2>title</h2>
+	<hr>
+	<div id="app">
+		<panda here="China"></panda>
+	</div>
+	<script src="../assets/js/vue.js"></script>
+	<script type="text/javascript">
+	// vue是从上往下加载，所以写组件的时候要注意顺序，被加载的组件应该写在前
+	    var city={
+	    	template:`<div style="color:green">Panda is so cute</div>`
+	    }
+		var pandaComponent={
+			template:
+			`
+			<div style="color:red">
+			Panda from China
+			<city></city>
+			</div>
+
+			`,
+			components:{
+				"city":city
+			}
+		}
+		var app=new Vue({
+			el:'#app',
+			data:{
+
+			},
+			components:{
+				"panda":pandaComponent
+			}
+		})
+	</script>
+</body>
+</html>

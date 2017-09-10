@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>组件属性</title>
+</head>
+<body>
+	<h2>title</h2>
+	<hr>
+	<div id="app">
+		<componentn v-bind:is="who"></component>
+		<button @click="changecom"></button>
+	</div>
+	<script src="../assets/js/vue.js"></script>
+	<script type="text/javascript">
+	// vue是从上往下加载，所以写组件的时候要注意顺序，被加载的组件应该写在前
+	    var componentA={
+	    	template:`<div style="color:red">Panda is so cute</div>`
+	    }
+	    var componentB={
+	    	template:`<div style="color:green">Panda is so cute</div>`
+	    }
+	    var componentC={
+	    	template:`<div style="color:black">Panda is so cute</div>`
+	    }
+		var app=new Vue({
+			el:'#app',
+			data:{
+				who:'componentA'
+			},
+			components:{
+				"componentA":componentA,
+				"componentB":componentB,
+				"componentC":componentC
+			},
+			methods:{
+				changecom:function(){
+					if(this.who=="componentA"){
+						this.who="componentB"
+					}else if(this.who=="componentB"){
+						this.who="componentC"
+					}else{
+						this.who="componentA"
+					}
+				}
+			}
+		})
+	</script>
+</body>
+</html>
